@@ -32,7 +32,6 @@ __/\\\\\\\\\\\\\____/\\\________/\\\__/\\\_________________/\\\\\\\\\\\____/\\\\
 	}
 
 	createCmd:= cmds.CreateCmd();
-	joinCmd:=cmds.JoinCmd();
 	sendCmd:=cmds.SendCmd();
 	receiveCmd:= cmds.ReceiveCMD();
 	listGCmd:=cmds.ListCmd();
@@ -42,7 +41,6 @@ __/\\\\\\\\\\\\\____/\\\________/\\\__/\\\_________________/\\\\\\\\\\\____/\\\\
 
 	root.AddCommand(
 		createCmd,
-		joinCmd,
 		sendCmd,
 		receiveCmd,
 		listGCmd,
