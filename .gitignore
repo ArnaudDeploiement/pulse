@@ -1,0 +1,58 @@
+# ----------------------------------------
+# Binaries for programs and plugins
+# ----------------------------------------
+# Ignore l’exécutable de ton projet (pulse.exe sur Windows, ou binaire sans extension sur Linux/macOS)
+pulse.exe
+/bin/
+/out/
+/*.exe
+/*.exe~
+/*.dll
+/*.so
+/*.dylib
+
+# ----------------------------------------
+# Fichiers de build Go
+# ----------------------------------------
+# Ne pas versionner les sorties de test et de couverture
+*.test
+*.coverprofile
+coverage.out
+*.prof
+
+# ----------------------------------------
+# Dépendances vendored (si tu utilises /vendor)
+# ----------------------------------------
+/vendor/
+
+# ----------------------------------------
+# Cache et modules Go
+# ----------------------------------------
+# Le cache du module Go (go.sum peut rester, mais tu peux l’ignorer si tu veux l’auto‑générer)
+# /go.sum
+# /go.mod
+
+# ----------------------------------------
+# IDE / éditeur
+# ----------------------------------------
+.vscode/
+.idea/
+*.iml
+
+# ----------------------------------------
+# Systèmes d’exploitation
+# ----------------------------------------
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ----------------------------------------
+# Logs, fichiers temporaires
+# ----------------------------------------
+*.log
+*.tmp
+*.swp

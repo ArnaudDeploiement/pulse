@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"pulse/cmds"
 
 	"github.com/fatih/color"
@@ -24,12 +22,6 @@ __/\\\\\\\\\\\\\____/\\\________/\\\__/\\\_________________/\\\\\\\\\\\____/\\\\
         _\///_________________\/////////_____\///////////////____\///////////_____\///////////////__
 		
 `
-
-
-
-
-	var listgroup []string
-
 	root := &cobra.Command{
 		Use:   "Pulse",
 		Short: "Pulse - Version 0.1",
@@ -39,38 +31,12 @@ __/\\\\\\\\\\\\\____/\\\________/\\\__/\\\_________________/\\\\\\\\\\\____/\\\\
 		},
 	}
 
-
 	createCmd:= cmds.CreateCmd();
 	joinCmd:=cmds.JoinCmd();
 	sendCmd:=cmds.SendCmd();
 	receiveCmd:= cmds.ReceiveCMD();
-
-	
-
-
-	
-	listGCmd := &cobra.Command{
-		Use:   "Liste",
-		Short: "Liste de vos groupes",
-		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Printf("voici la liste des groupes %s", listgroup)
-	},
-}
-
-	
-
-	stopCmd := &cobra.Command{
-		Use:   "Stop",
-		Short: "Stop la réception",
-		Run: func(cmd *cobra.Command, args []string) {
-			if groupFileName == "" {
-				fmt.Printf("Vous devez préciser le nom du groupe pour l'arrêter --name")
-			}
-			fmt.Printf("\n✅ Votre dépot a bien été enregistré à ce chemin : %s.\n\n", groupFileName)
-		},
-	}
-
-	stopCmd.Flags().StringVarP(&groupFileName, "name", "n", "", "Nom du groupe")
+	listGCmd:=cmds.ListCmd();
+	stopCmd:=cmds.StopCmd()
 
 	root.CompletionOptions.DisableDefaultCmd = true
 
