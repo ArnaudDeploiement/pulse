@@ -12,7 +12,7 @@ func StopCmd() *cobra.Command{
 
 	
 	cmd := &cobra.Command{
-		Use:   "Stop",
+		Use:   "stop",
 		Short: "Stop la réception",
 		Run: func(cmd *cobra.Command, args []string) {
 			if groupFileName == "" {

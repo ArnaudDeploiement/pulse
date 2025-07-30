@@ -11,7 +11,7 @@ func SendCmd() *cobra.Command{
 	var group string
 	
 	cmd := &cobra.Command{
-		Use:   "Envoyer",
+		Use:   "envoyer",
 		Short: "Envoyer des données privées",
 		Args: cobra.ExactArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {

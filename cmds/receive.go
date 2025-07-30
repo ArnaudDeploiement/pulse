@@ -11,7 +11,7 @@ func ReceiveCMD() *cobra.Command{
 	var repoName string;
 
 		cmd := &cobra.Command{
-		Use:   "Recevoir",
+		Use:   "recevoir",
 		Short: "Recevoir des données",
 		Run: func(cmd *cobra.Command, args []string) {
 			if repoName == "" {

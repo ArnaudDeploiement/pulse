@@ -12,7 +12,7 @@ func CreateCmd() *cobra.Command{
 var groupName string
 	
 	cmd := &cobra.Command{
-		Use:   "Créer",
+		Use:   "créer",
 		Short: "Créer un groupe privé",
 		Run: func(cmd *cobra.Command, args []string) {
 			if groupName == "" {
