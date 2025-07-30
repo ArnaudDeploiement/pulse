@@ -41,6 +41,7 @@ __/\\\\\\\\\\\\\____/\\\________/\\\__/\\\_________________/\\\\\\\\\\\____/\\\\
 
 	root.CompletionOptions.DisableDefaultCmd = true
 
+	//créer une commande pour connaître son PID
 	root.AddCommand(
 		createCmd,
 		sendCmd,
