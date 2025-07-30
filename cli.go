@@ -38,6 +38,7 @@ __/\\\\\\\\\\\\\____/\\\________/\\\__/\\\_________________/\\\\\\\\\\\____/\\\\
 	listGCmd:=cmds.ListCmd();
 	stopCmd:=cmds.StopCmd()
 
+
 	root.CompletionOptions.DisableDefaultCmd = true
 
 	root.AddCommand(
