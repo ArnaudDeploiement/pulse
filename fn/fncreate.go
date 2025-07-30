@@ -1,7 +1,10 @@
 package fn
 
 import (
+	"encoding/base64"
 	"fmt"
+
+	"github.com/libp2p/go-libp2p/core/crypto"
 )
 
 type GroupKey struct{
@@ -12,16 +15,12 @@ type GroupKey struct{
 
 
 func FnCreate(flag string) string {
-	
-	//Créer le paire priv/pub
+	priv,_, _:= crypto.GenerateKeyPair(crypto.Ed25519, -1)
+	privBytes,_ :=crypto.MarshalPrivateKey(priv)
+	encoded:=base64.StdEncoding.EncodeToString(privBytes)
 
 
-	//priv, pub, err:= crypto.GenerateEd25519Key(crypto.Ed25519, -1)
-	
-	//privBytes,_ :=crypto.MarshalPrivateKey(priv)
-	//encoded:=base64.StdEncoding.EncodeToString(privBytes)
 
-	//tmpl:=
 
 
 	return fmt.Sprintf("Le groupe %s a été crée avec succès", flag)

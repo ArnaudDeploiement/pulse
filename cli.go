@@ -33,6 +33,7 @@ __/\\\\\\\\\\\\\____/\\\________/\\\__/\\\_________________/\\\\\\\\\\\____/\\\\
 
 
 	createCmd:= cmds.CreateCmd();
+	idCmd:=cmds.IdCmd()
 	sendCmd:=cmds.SendCmd();
 	receiveCmd:= cmds.ReceiveCMD();
 	listGCmd:=cmds.ListCmd();
@@ -41,9 +42,10 @@ __/\\\\\\\\\\\\\____/\\\________/\\\__/\\\_________________/\\\\\\\\\\\____/\\\\
 
 	root.CompletionOptions.DisableDefaultCmd = true
 
-	//créer une commande pour connaître son PID
+	//créer une commande pour connaître son PeerID
 	root.AddCommand(
 		createCmd,
+		idCmd,
 		sendCmd,
 		receiveCmd,
 		listGCmd,
