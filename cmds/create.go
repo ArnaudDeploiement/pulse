@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 
+	"pulse/fn"
+
 	"github.com/spf13/cobra"
 )
 
@@ -19,7 +21,7 @@ var groupName string
 				fmt.Println("Vous devez préciser le nom avec --name")
 				os.Exit(1)
 			}
-			fmt.Printf("\n✅ Le groupe %s a été créé avec succès. \n\n", groupName)
+		  fmt.Println(fn.FnCreate(groupName))	
 		},
 	}
 
