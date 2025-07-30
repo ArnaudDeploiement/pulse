@@ -2,9 +2,12 @@ package fn
 
 import (
 	"encoding/base64"
+	"encoding/json"
 	"fmt"
+	"os"
 
 	"github.com/libp2p/go-libp2p/core/crypto"
+	"github.com/libp2p/go-libp2p/core/peer"
 )
 
 type GroupKey struct{
@@ -19,6 +22,21 @@ func FnCreate(flag string) string {
 	privBytes,_ :=crypto.MarshalPrivateKey(priv)
 	encoded:=base64.StdEncoding.EncodeToString(privBytes)
 
+	id,_:=peer.IDFromPrivateKey(priv)
+
+	groupKey:=GroupKey{
+	GroupName: flag,
+	PeerId: id.String(),
+	PrivKey: encoded,
+}
+	
+
+	data,_:=json.MarshalIndent(groupKey,"","")
+
+	err:=os.WriteFile("GroupKey.json",data, 0600);
+	if err!=nil{
+		fmt.Println("erreur en écriture pour le fichier json")
+	}
 
 
 
