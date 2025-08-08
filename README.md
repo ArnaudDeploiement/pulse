@@ -1,4 +1,6 @@
-﻿Pulse est un outil CLI en Go permettant de créer et gérer des groupes privés pour le partage direct de fichiers via le réseau libp2p, sans serveur central et sans stockage intermédiaire. Pulse utilise un relay passif uniquement pour contourner les NAT/pare-feux, et ne conserve aucune donnée sur disque en dehors des machines des membres.
+<img width="954" height="706" alt="image" src="https://github.com/user-attachments/assets/3d9f4b73-a795-4b2a-a3ff-092eb30eb084" />
+
+Pulse est un outil CLI en Go permettant de créer et gérer des groupes privés pour le partage direct de fichiers via le réseau libp2p, sans serveur central et sans stockage intermédiaire. Pulse utilise un relay passif uniquement pour contourner les NAT/pare-feux, et ne conserve aucune donnée sur disque en dehors des machines des membres.
 
 ✨ Fonctionnalités
 🔐 Groupes privés avec identité basée sur clé privée Ed25519
@@ -16,3 +18,4 @@
 
 📜 Licence
 MIT — utilisation libre avec attribution.
+
