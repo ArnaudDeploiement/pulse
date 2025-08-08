@@ -2,6 +2,7 @@ package cmds
 
 import (
 	"fmt"
+	"pulse/fn"
 
 	"github.com/spf13/cobra"
 )
@@ -14,7 +15,9 @@ func IdCmd() *cobra.Command{
 		Short: "Obtenir son ID à partager",
 		Run: func(cmd *cobra.Command, args []string) {
 			
-			fmt.Printf("voici votre ID")
+		 id :=	fn.GetIdPerson()
+
+		 fmt.Println(id)
 		},
 	}
 
