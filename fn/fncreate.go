@@ -45,9 +45,8 @@ func FnCreate(groupname string, relayAddr string) string {
 	PrivKey: encoded,
 	RelayAddr: "voici le relay_addr",
 }
-	
-	
-	dataGK,_:=json.MarshalIndent(groupKey,"","")
+		
+	dataGK,_:=json.MarshalIndent(groupKey,"","  ")
 	
 	err=os.WriteFile(filepath.Join(basedir,"GroupKey_"+groupname+".json") ,dataGK, 0600);
 	if err!=nil{
@@ -63,7 +62,7 @@ func FnCreate(groupname string, relayAddr string) string {
 	
 	}
 
-	dataIV,_:=json.MarshalIndent(invite,"","")
+	dataIV,_:=json.MarshalIndent(invite,"","  ")
 
 	err=os.WriteFile(filepath.Join(basedir,"Invite_"+groupname+".json"),dataIV,0600)
 	if err!=nil{

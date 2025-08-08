@@ -17,7 +17,7 @@ func IdCmd() *cobra.Command{
 			
 		 id :=	fn.GetIdPerson()
 
-		 fmt.Println(id)
+		 fmt.Printf("Nouvelle ID :  %s",id)
 		},
 	}
 
