@@ -72,3 +72,4 @@ func FnCreate(groupname string, relayAddr string) string {
 
 	return fmt.Sprintf("Le groupe %s a été crée avec succès", groupname)
 }
+

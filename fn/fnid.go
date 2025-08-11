@@ -1,10 +1,11 @@
 package fn
 
 import (
+	"encoding/base64"
 	"encoding/json"
-	"fmt"
 	"os"
 	"path/filepath"
+	"strconv"
 
 	"github.com/libp2p/go-libp2p/core/crypto"
 	"github.com/libp2p/go-libp2p/core/peer"
@@ -12,11 +13,12 @@ import (
 
 type NewID struct{
 	PeerID string
-	pub string
 	priv string
 }
 
 func GetIdPerson() string {
+
+
 
 	basedir:=`C:/pulse`
 	err := os.MkdirAll(basedir, 0o755); 
@@ -27,21 +29,23 @@ func GetIdPerson() string {
 
 	//récupérer la pub et la priv, encoder pour json
 	priv, _, _ := crypto.GenerateKeyPair(crypto.Ed25519, -1)
+	privBytes,_ :=crypto.MarshalPrivateKey(priv)
+	encoded:=base64.StdEncoding.EncodeToString(privBytes)
 	id, _ := peer.IDFromPrivateKey(priv)
 
 
 
 	newId:=NewID{
 		PeerID: id.String(),
+		priv : encoded,
 	}
+
+	file,_:=filepath.Glob(filepath.Join(basedir,"id_*.json"))
+	increment:=len(file)+1
 
 	data,_:=json.MarshalIndent(newId,"","  ")
+	os.WriteFile(filepath.Join(basedir,"id_"+strconv.Itoa(increment)+".json"),data,0600)
 
-	err=os.WriteFile(filepath.Join(basedir,"id.json"),data,0600)
-	if err!=nil{
-		fmt.Println("erreur d'écriture")
-	}
-
-
-	return id.String()
+	
+	return newId.PeerID 
 }

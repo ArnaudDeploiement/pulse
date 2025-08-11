@@ -38,6 +38,8 @@ var relayAddr string
 	cmd.Flags().StringVarP(&relayAddr, "relai", "r", "", "Adresse du relai")
 
 
+
+
 	return cmd
 }
 
