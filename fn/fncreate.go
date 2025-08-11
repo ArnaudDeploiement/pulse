@@ -51,8 +51,8 @@ func FnCreate(groupname string, relayAddr string) string {
 	
 	}
 
-	dataIV,_:=json.MarshalIndent(protocol,"","  ")
-	os.WriteFile(filepath.Join(basedir,"Protocol_"+groupname+".json"),dataIV,0600)
+	dataProtocol,_:=json.MarshalIndent(protocol,"","  ")
+	os.WriteFile(filepath.Join(basedir,"Protocol_"+groupname+".json"),dataProtocol,0600)
 	
 	return fmt.Sprintf("Le groupe %s a été crée avec succès.\nLe fichier Invite_%s.json a été créé avec succès dans %s", groupname,groupname,basedir)
 }

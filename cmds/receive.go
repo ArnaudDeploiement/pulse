@@ -2,37 +2,32 @@ package cmds
 
 import (
 	"fmt"
+	"pulse/fn"
 
 	"github.com/spf13/cobra"
 )
 
 func ReceiveCMD() *cobra.Command{
-
 	var repoName string;
-	var invite string;
+	var protocol string;
 
 		cmd := &cobra.Command{
 		Use:   "recevoir",
 		Short: "Recevoir des données",
 		Run: func(cmd *cobra.Command, args []string) {
-			if repoName == "" {
-				fmt.Printf("Vous devez préciser un chemin de dépot --d")
-			}
-			fmt.Printf("\n✅ Votre dépot a bien été enregistré à ce chemin : %s.", repoName)
-
-			if invite == "" {
-				fmt.Printf("Vous devez préciser le chemin de l'invite.json --i")
-			}
-			fmt.Printf("\n✅ Votre invite a bien été enregistrée %s\n\n", invite)
+			if repoName == "" || protocol == "" {
+				fmt.Printf("Vous devez préciser un chemin de dépot --d\nVous devez préciser le chemin du protocol.json --p")
+			} 
+			fmt.Println(fn.Fnreceive(repoName,protocol))		
 		},
 	}
 
 
 
 	cmd.Flags().StringVarP(&repoName, "dépot", "d", "", "Chemin du dépot")
-	cmd.Flags().StringVarP(&invite, "invite", "i", "", "Chemin de l'invite")
+	cmd.Flags().StringVarP(&protocol, "protocol", "p", "", "Chemin du protocol")
 	cmd.MarkFlagRequired("dépot")
-	cmd.MarkFlagRequired("invite")
+	cmd.MarkFlagRequired("protocol")
 
 	return cmd
 
