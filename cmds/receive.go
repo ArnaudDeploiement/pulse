@@ -18,7 +18,7 @@ func ReceiveCMD() *cobra.Command{
 			if repoName == "" || protocol == "" {
 				fmt.Printf("Vous devez préciser un chemin de dépot --d\nVous devez préciser le chemin du protocol.json --p")
 			} 
-			fmt.Println(fn.Fnreceive(repoName,protocol))		
+			fn.FnReceive(protocol,repoName)	
 		},
 	}
 
