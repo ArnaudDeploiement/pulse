@@ -13,7 +13,7 @@ import (
 	ma "github.com/multiformats/go-multiaddr"
 )
 
-func FnPost(protocolPath string, file string) string {
+func FnPost(protocolPath string, file string, idFile string) string {
 	ctx := context.Background()
 	
 	var cfg Protocol	

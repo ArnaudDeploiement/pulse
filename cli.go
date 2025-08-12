@@ -32,6 +32,7 @@ __/\\\\\\\\\\\\\____/\\\________/\\\__/\\\_________________/\\\\\\\\\\\____/\\\\
 	}
 
 
+	idCmd:=cmds.IdCmd()
 	createCmd:= cmds.CreateCmd();
 	postCmd:=cmds.PostCmd();
 	getCmd:= cmds.GetCMD();
@@ -44,6 +45,7 @@ __/\\\\\\\\\\\\\____/\\\________/\\\__/\\\_________________/\\\\\\\\\\\____/\\\\
 
 	//créer une commande pour connaître son PeerID
 	root.AddCommand(
+		idCmd,
 		createCmd,
 		postCmd,
 		getCmd,

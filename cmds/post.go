@@ -12,6 +12,7 @@ func PostCmd() *cobra.Command{
 
 	var file string
 	var protocol string
+	var idFile string
 	
 	cmd := &cobra.Command{
 		Use:   "post",
@@ -23,7 +24,7 @@ func PostCmd() *cobra.Command{
 				os.Exit(1)
 			}
 			
-			fn.FnPost(protocol,file)
+			fn.FnPost(protocol,file, idFile)
 			
 			
 		},

@@ -31,6 +31,7 @@ var outdir string
 				os.Exit(1)
 		
 			}
+			
 		
 		  fmt.Println(fn.FnCreate(groupName, relayAddr, outdir))	
 		},
@@ -41,6 +42,7 @@ var outdir string
 	cmd.Flags().StringVarP(&outdir, "outdir", "o", "", "Outdir path")
 	cmd.MarkFlagRequired("name")
 	cmd.MarkFlagRequired("relay")
+
 
 
 
