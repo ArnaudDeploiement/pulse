@@ -24,7 +24,7 @@ func GetCMD() *cobra.Command{
 
 
 
-	cmd.Flags().StringVarP(&repoName, "repository", "re", "", "Repository path")
+	cmd.Flags().StringVarP(&repoName, "repository", "r", "", "Repository path")
 	cmd.Flags().StringVarP(&protocol, "protocol", "p", "", "Protocol path")
 	cmd.MarkFlagRequired("repository")
 	cmd.MarkFlagRequired("protocol")
