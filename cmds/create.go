@@ -15,6 +15,7 @@ func CreateCmd() *cobra.Command{
 
 var groupName string
 var relayAddr string
+var outdir string
 
 	
 	cmd := &cobra.Command{
@@ -30,13 +31,15 @@ var relayAddr string
 				os.Exit(1)
 			}
 		
-		  fmt.Println(fn.FnCreate(groupName, relayAddr))	
+		  fmt.Println(fn.FnCreate(groupName, relayAddr, outdir))	
 		},
 	}
 
 	cmd.Flags().StringVarP(&groupName, "name", "n", "", "Group's name")
 	cmd.Flags().StringVarP(&relayAddr, "relay", "r", "", "Relay's address")
-
+	cmd.Flags().StringVarP(&outdir, "outdir", "o", "", "Outdir path")
+	cmd.MarkFlagRequired("name")
+	cmd.MarkFlagRequired("relay")
 
 
 

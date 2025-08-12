@@ -16,11 +16,13 @@ type Protocol struct{
 	As string `json:"as"`
 }
 
-func FnCreate(groupname string, relayAddr string) string {
+func FnCreate(groupname string, relayAddr string, outdir string) string {
 	basedir:=`C:/pulse_test`
 	os.MkdirAll(basedir, 0o755); 
 	
-
+	if outdir == ""{ outdir=`.`}
+	os.MkdirAll(outdir,0o755)
+	
 	protocol:=Protocol{
 		Groupname: groupname,
 		Protocol: endpointProtocol() ,
@@ -32,7 +34,7 @@ func FnCreate(groupname string, relayAddr string) string {
 	dataProtocol,_:=json.MarshalIndent(protocol,"","  ")
 	os.WriteFile(filepath.Join(basedir,"Protocol_"+groupname+".json"),dataProtocol,0600)
 	
-	return fmt.Sprintf("\nProtocol_%s.json has been created with success in %s\n", groupname,basedir)
+	return fmt.Sprintf("\nProtocol_%s has been created with success in %s\nA repository directory has been created at %s.\nCongratulations, you’ve created an endpoint for exchanging data.\n\nYour protocol %s is now a standalone API! Welcome to Web3! :)\n\n", groupname,basedir,outdir, groupname)
 }
 
 func endpointProtocol() string{
