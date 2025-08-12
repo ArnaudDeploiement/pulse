@@ -14,6 +14,12 @@ import (
 )
 
 func FnPost(protocolPath string, file string, idFile string) string {
+	
+	//réimplémenter, tu dois ajouter le idfile string 
+	//creation du host
+	//connexion au relay
+	//construction de l'addresse relayée = relayaddr + peerid
+	
 	ctx := context.Background()
 	
 	var cfg Protocol	
