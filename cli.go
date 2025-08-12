@@ -25,7 +25,7 @@ __/\\\\\\\\\\\\\____/\\\________/\\\__/\\\_________________/\\\\\\\\\\\____/\\\\
 	root := &cobra.Command{
 		Use:   "Pulse",
 		Short: "Pulse - Version 0.1",
-		Long:  color.HiMagentaString(banner) + "\n\n" + "Partage de données privées en P2P, sans serveur et en toute sécurité." + "\n\n" + color.HiCyanString("Pulse remplace le stockage et le partage traditionnels par un échange privé, sécurisé et décentralisé."),
+		Long:  color.HiMagentaString(banner) + "\n\n" + "Share your data with total freedom: a private, secure, and decentralized protocol — no servers, just you and your peers." + "\n\n" + color.HiCyanString("Pulse reinvents the way you share: ditch the cloud, embrace fast, direct, and secure exchange."),
 		Run: func(cmd *cobra.Command, args []string) {
 			cmd.Help()
 		},
@@ -55,11 +55,11 @@ __/\\\\\\\\\\\\\____/\\\________/\\\__/\\\_________________/\\\\\\\\\\\____/\\\\
 
 {{with .Long}}{{.}}{{end}}
 
-Utiliser Pulse :
+Use Pulse :
 
-  Pulse + commandes
+  Pulse + cmd
 
-Les commandes:
+Cmds :
 {{range .Commands}}{{if .IsAvailableCommand}}
   {{rpad .Name .NamePadding }} {{.Short}}
 {{end}}{{end}}

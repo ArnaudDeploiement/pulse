@@ -13,7 +13,7 @@ func StopCmd() *cobra.Command{
 	
 	cmd := &cobra.Command{
 		Use:   "stop",
-		Short: "Stop la réception",
+		Short: "Stop protocol listener",
 		Run: func(cmd *cobra.Command, args []string) {
 			if groupFileName == "" {
 				fmt.Printf("Vous devez préciser le nom du groupe pour l'arrêter --name")

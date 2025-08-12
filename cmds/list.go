@@ -11,8 +11,8 @@ func ListCmd() *cobra.Command{
 var listgroup []string;
 		
 	cmd := &cobra.Command{
-		Use:   "liste",
-		Short: "Liste de vos groupes",
+		Use:   "list",
+		Short: "Protocols list",
 		Run: func(cmd *cobra.Command, args []string) {
 			fmt.Printf("voici la liste des groupes %s", listgroup)
 	},

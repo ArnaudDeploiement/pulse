@@ -11,13 +11,13 @@ func PostCmd() *cobra.Command{
 	var group string
 	
 	cmd := &cobra.Command{
-		Use:   "envoyer",
-		Short: "Envoyer des données privées",
+		Use:   "post",
+		Short: "Publish data to a protocol",
 		Args: cobra.ExactArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {
 			file:=args[0]
 			if file==""{
-				fmt.Printf("Vous devez précier le chemin du fichier")
+				fmt.Printf("You have to specify file path")
 			}
 			
 			if group == ""  {
