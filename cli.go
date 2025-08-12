@@ -33,10 +33,11 @@ __/\\\\\\\\\\\\\____/\\\________/\\\__/\\\_________________/\\\\\\\\\\\____/\\\\
 
 
 	createCmd:= cmds.CreateCmd();
-	sendCmd:=cmds.SendCmd();
-	receiveCmd:= cmds.ReceiveCMD();
+	postCmd:=cmds.PostCmd();
+	getCmd:= cmds.GetCMD();
 	listGCmd:=cmds.ListCmd();
 	stopCmd:=cmds.StopCmd()
+
 
 
 	root.CompletionOptions.DisableDefaultCmd = true
@@ -44,8 +45,8 @@ __/\\\\\\\\\\\\\____/\\\________/\\\__/\\\_________________/\\\\\\\\\\\____/\\\\
 	//créer une commande pour connaître son PeerID
 	root.AddCommand(
 		createCmd,
-		sendCmd,
-		receiveCmd,
+		postCmd,
+		getCmd,
 		listGCmd,
 		stopCmd,
 	)

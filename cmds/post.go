@@ -6,7 +6,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func SendCmd() *cobra.Command{
+func PostCmd() *cobra.Command{
 
 	var group string
 	

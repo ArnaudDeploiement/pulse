@@ -21,7 +21,7 @@ import (
 	ma "github.com/multiformats/go-multiaddr"
 )
 
-func FnReceive(protocolPath, storeDir string)  {
+func FnGet(protocolPath, storeDir string)  {
 	ctx := context.Background()
 
 

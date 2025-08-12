@@ -34,7 +34,7 @@ func FnCreate(groupname string, relayAddr string, outdir string) string {
 	dataProtocol,_:=json.MarshalIndent(protocol,"","  ")
 	os.WriteFile(filepath.Join(basedir,"Protocol_"+groupname+".json"),dataProtocol,0600)
 	
-	return fmt.Sprintf("\nProtocol_%s has been created with success in %s\nA repository directory has been created at %s.\nCongratulations, you’ve created an endpoint for exchanging data.\n\nYour protocol %s is now a standalone API! Welcome to Web3! :)\n\n", groupname,basedir,outdir, groupname)
+	return fmt.Sprintf("\n🌐 Protocol_%s has been created with success in %s\n📂 A repository directory has been created at %s\n\n🔥 Congratulations, you’ve created an endpoint for exchanging data\n\n🌟 Your protocol %s is now a standalone API! Welcome to Web3! :)\n\n", groupname,basedir,outdir, groupname)
 }
 
 func endpointProtocol() string{
