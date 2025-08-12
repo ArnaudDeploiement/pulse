@@ -12,7 +12,7 @@ var listgroup []string;
 		
 	cmd := &cobra.Command{
 		Use:   "list",
-		Short: "Protocols list",
+		Short: " Protocols list",
 		Run: func(cmd *cobra.Command, args []string) {
 			fmt.Printf("voici la liste des groupes %s", listgroup)
 	},

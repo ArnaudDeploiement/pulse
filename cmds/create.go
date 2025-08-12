@@ -24,11 +24,12 @@ var outdir string
 		Run: func(cmd *cobra.Command, args []string) {
 			if groupName == "" {
 				fmt.Println("You have to give a name with -n")
-				os.Exit(1)
+			os.Exit(1)
 			}
 			if relayAddr == "" {
 				fmt.Println("You have to give a relay with -r")
 				os.Exit(1)
+		
 			}
 		
 		  fmt.Println(fn.FnCreate(groupName, relayAddr, outdir))	

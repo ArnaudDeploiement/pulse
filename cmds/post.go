@@ -2,33 +2,37 @@ package cmds
 
 import (
 	"fmt"
+	"os"
+	"pulse/fn"
 
 	"github.com/spf13/cobra"
 )
 
 func PostCmd() *cobra.Command{
 
-	var group string
+	var file string
+	var protocol string
 	
 	cmd := &cobra.Command{
 		Use:   "post",
 		Short: "Publish data to a protocol",
 		Args: cobra.ExactArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {
-			file:=args[0]
-			if file==""{
-				fmt.Printf("You have to specify file path")
+		if protocol=="" || file == ""   {
+				fmt.Printf("You have to specify Protocol path & File path")
+				os.Exit(1)
 			}
 			
-			if group == ""  {
-				fmt.Printf("Vous devez préciser le nom du fichier")
-			}
-			fmt.Printf("\n✅ %s a bien été envoyé au groupe %s.\n\n", file, group)
+			fn.FnPost(protocol,file)
+			
+			
 		},
 	}
 
-	cmd.Flags().StringVarP(&group, "groupe", "g", "", "Nom du groupe")
-	cmd.MarkFlagRequired("groupe")
+	cmd.Flags().StringVarP(&protocol, "protocol", "p", "", "Protocol Path")
+	cmd.MarkFlagRequired("protocol")
+	cmd.Flags().StringVarP(&file, "file", "f", "", "File Path")
+	cmd.MarkFlagRequired("file")
 
 	return cmd
 
