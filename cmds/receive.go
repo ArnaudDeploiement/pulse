@@ -25,7 +25,7 @@ func ReceiveCMD() *cobra.Command{
 
 
 	cmd.Flags().StringVarP(&repoName, "dépot", "d", "", "Chemin du dépot")
-	cmd.Flags().StringVarP(&protocol, "protocol", "p", "", "Chemin du protocol")
+	cmd.Flags().StringVarP(&protocol, "protocole", "p", "", "Chemin du protocol")
 	cmd.MarkFlagRequired("dépot")
 	cmd.MarkFlagRequired("protocol")
 

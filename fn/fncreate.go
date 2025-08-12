@@ -32,7 +32,7 @@ func FnCreate(groupname string, relayAddr string) string {
 	dataProtocol,_:=json.MarshalIndent(protocol,"","  ")
 	os.WriteFile(filepath.Join(basedir,"Protocol_"+groupname+".json"),dataProtocol,0600)
 	
-	return fmt.Sprintf("Le fichier Protocol_%s.json a été créé avec succès dans %s", groupname,basedir)
+	return fmt.Sprintf("\nProtocol_%s.json has been created with success in %s\n", groupname,basedir)
 }
 
 func endpointProtocol() string{

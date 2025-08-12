@@ -18,15 +18,15 @@ var relayAddr string
 
 	
 	cmd := &cobra.Command{
-		Use:   "créer",
-		Short: "Créer un groupe privé",
+		Use:   "create",
+		Short: "Create a protocol",
 		Run: func(cmd *cobra.Command, args []string) {
 			if groupName == "" {
-				fmt.Println("Vous devez préciser le nom avec -n")
+				fmt.Println("You have to give a name with -n")
 				os.Exit(1)
 			}
 			if relayAddr == "" {
-				fmt.Println("Vous devez préciser le relai avec -r")
+				fmt.Println("You have to give a relay with -r")
 				os.Exit(1)
 			}
 		
@@ -34,8 +34,8 @@ var relayAddr string
 		},
 	}
 
-	cmd.Flags().StringVarP(&groupName, "nom", "n", "", "Nom du groupe")
-	cmd.Flags().StringVarP(&relayAddr, "relai", "r", "", "Adresse du relai")
+	cmd.Flags().StringVarP(&groupName, "name", "n", "", "Group's name")
+	cmd.Flags().StringVarP(&relayAddr, "relay", "r", "", "Relay's address")
 
 
 

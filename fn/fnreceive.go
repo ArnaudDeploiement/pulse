@@ -3,6 +3,8 @@ package fn
 import (
 	"bufio"
 	"context"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -22,32 +24,20 @@ import (
 func FnReceive(protocolPath, storeDir string)  {
 	ctx := context.Background()
 
-	// 1) Lire protocol.json
-	data, _ := os.ReadFile(protocolPath)
-	var cfg Protocol
-	json.Unmarshal(data, &cfg)
 
-	// 2) Préparer dépôt + keepalive
+	cfg:=unmarshal(protocolPath)
+	keep:=keep(cfg)
+
 	os.MkdirAll(storeDir, 0o755)
-	base := `C:\pulse\receivers`
-	os.MkdirAll(base, 0o755)
-	keep := filepath.Join(base, cfg.Protocol+".keep")
-	os.WriteFile(keep, []byte("1"), 0o600)
 
-	// 3) Créer l’hôte libp2p
+
 	h, _ := libp2p.New()
 	fmt.Println("📡 PeerID :", h.ID().String())
 
-	// 4) Connexion au relay
 	maddr, _ := ma.NewMultiaddr(cfg.RelayAddr)
 	ri, _ := peer.AddrInfoFromP2pAddr(maddr)
 	h.Connect(ctx, *ri)
 	fmt.Println("✅ Connecté au relay")
-
-
-	
-
-	// 5) Handler réception
 
 	 handler := func (s network.Stream) {
 		defer s.Close()
@@ -68,8 +58,6 @@ func FnReceive(protocolPath, storeDir string)  {
 
 	h.SetStreamHandler(protocol.ID(cfg.Protocol), handler)
 
-
-	// 6) Watcher stop
 	go func() {
 		t := time.NewTicker(2 * time.Second)
 		for range t.C {
@@ -86,3 +74,21 @@ func FnReceive(protocolPath, storeDir string)  {
     select {}
 
 }
+
+
+func unmarshal(protocolPath string) Protocol {
+	data, _ := os.ReadFile(protocolPath)
+	var cfg Protocol
+	json.Unmarshal(data, &cfg)
+	return cfg
+}
+
+func keep(cfg Protocol) string{
+		base := `C:\pulse\receivers`
+		os.MkdirAll(base, 0o755)
+		sum:=sha256.Sum256([]byte(cfg.Protocol))
+		name:=hex.EncodeToString(sum[:8])
+		keep := filepath.Join(base, name+".keep")
+		os.WriteFile(keep, []byte("1"), 0o600)
+		return keep
+	}

@@ -56,3 +56,5 @@ Desktop.ini
 *.log
 *.tmp
 *.swp
+Dockerfile
+.gitignore
