@@ -26,6 +26,10 @@ func FnPost(protocolPath string, file string, idFile string) string {
 	data,_:=os.ReadFile(protocolPath)
 	json.Unmarshal(data, &cfg)
 
+	var IDF IDFile
+	dataID,_:=os.ReadFile(idFile)
+	json.Unmarshal(dataID,&IDF)
+
 
 	h, _:= libp2p.New()
 	fmt.Printf("Connexion %s", h.ID().String())

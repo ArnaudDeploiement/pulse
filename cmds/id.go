@@ -7,29 +7,26 @@ import (
 )
 
 func IdCmd() *cobra.Command {
-
-	var flag string
+	var mode string // variable pour stocker la valeur du flag
 
 	cmd := &cobra.Command{
-		Use:   "ID",
-		Short: "Get PeerID",
+		Use:   "id",
+		Short: "Get or Add PeerId",
 		Run: func(cmd *cobra.Command, args []string) {
-			
-		switch flag {
-		case "ID" :
-			fmt.Println("get id")
-		case "Add"	:
-		 fmt.Println( "add id")
-		default:
-			fmt.Println("erreur")
-		}
-	
-		cmd.Flags().StringVarP(&flag, "mode", "m", "get", "Action: get or add")
-
-
+		
+			switch mode {
+			case "id":
+				fmt.Println("get id")
+			case "add":
+			fmt.Printf("add id %s", args[0:])
+			default:
+				fmt.Println("erreur")
+			}
 		},
 	}
 
+	// Déclaration du flag UNE seule fois
+	cmd.Flags().StringVarP(&mode, "mode", "m", "id", "Action: id or add")
 
 	return cmd
 }
